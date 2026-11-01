@@ -1,0 +1,9 @@
+.contact-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+.contact-card { padding: 34px 20px; text-align: center; background: var(--color-cream); border-radius: 14px; transition: transform var(--transition), box-shadow var(--transition); }
+.contact-card:hover { transform: translateY(-8px); box-shadow: 0 16px 34px rgba(0,0,0,.1); }
+.contact-card__icon { width: 62px; height: 62px; display: inline-grid; place-items: center; margin-bottom: 14px; background: var(--color-accent); border-radius: 50%; }
+.contact-card h3 { font-size: 22px; }
+.contact-card p, .contact-card a { margin: 0; color: var(--color-text-soft); overflow-wrap: anywhere; }
+.contact-card a:hover { color: var(--color-accent); }
+@media (max-width: 991px) { .contact-cards { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 575px) { .contact-cards { grid-template-columns: 1fr; } }

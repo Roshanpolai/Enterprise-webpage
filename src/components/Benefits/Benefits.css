@@ -1,0 +1,112 @@
+.benefits__layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+/* ---------- Left: text panel ---------- */
+.benefits__label { margin: 0; font-family: var(--font-script); font-size: 34px; color: var(--color-accent); }
+.benefits__copy { min-height: 170px; animation: copy-in 0.5s ease; }
+.benefits__copy h3 { font-size: clamp(32px, 4vw, 46px); }
+.benefits__copy p { margin: 0; font-size: 19px; color: var(--color-text-soft); }
+@keyframes copy-in { from { opacity: 0; transform: translateX(-20px); } }
+
+.benefits__progress { display: flex; gap: 8px; margin-top: 24px; }
+.benefits__progress span { width: 10px; height: 10px; background: #e5c39b; border-radius: 10px; transition: width var(--transition), background var(--transition); }
+.benefits__progress span.is-active { width: 34px; background: var(--color-accent); }
+
+/* ---------- Right: rotating ring ---------- */
+.benefits__stage {
+  --ring-radius: 180px;
+  --icon-size: 68px;
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  aspect-ratio: 1;
+  margin-inline: auto;
+}
+
+.benefits__bowl {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 190px;
+  height: 190px;
+  translate: -50% -50%;
+  overflow: hidden;
+  /* border: 8px solid #fff; */
+  border-radius: 50%;
+  /* box-shadow: 0 16px 40px rgba(120, 70, 20, 0.2); */
+}
+.benefits__bowl img, .benefits__bowl .photo-fallback { width: 100%; height: 100%; object-fit: cover; }
+
+.orbit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: calc(var(--ring-radius) * 2);
+  height: calc(var(--ring-radius) * 2);
+  margin: calc(var(--ring-radius) * -1) 0 0 calc(var(--ring-radius) * -1);
+  animation: orbit-spin 40s linear infinite;
+}
+.benefits__layout:hover .orbit,
+.benefits__layout:hover .benefit__icon { animation-play-state: paused; }
+
+/* Each icon sits at its own angle on the ring */
+.benefit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  transform: rotate(var(--angle)) translateY(calc(var(--ring-radius) * -1)) rotate(calc(var(--angle) * -1));
+}
+
+/* Turns the opposite way so the icon stays upright while the ring spins */
+.benefit__icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: var(--icon-size);
+  height: var(--icon-size);
+  display: grid;
+  place-items: center;
+  translate: -50% -50%;
+  color: var(--color-accent);
+  background: #fff;
+  border: 0;
+  border-radius: 50%;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.14);
+  animation: counter-spin 40s linear infinite;
+  transition: scale var(--transition), background var(--transition), color var(--transition);
+}
+.benefit__icon svg { width: 30px; height: 30px; }
+.benefit__icon:hover { scale: 1.15; }
+.benefit__icon.is-active { color: #fff; background: var(--color-accent); scale: 1.2; }
+
+@keyframes orbit-spin { to { transform: rotate(360deg); } }
+@keyframes counter-spin { to { rotate: -360deg; } }
+
+/* ---------- Smaller laptops ---------- */
+@media (max-width: 1199px) {
+  .benefits__layout { gap: 30px; }
+  .benefits__stage { --ring-radius: 160px; --icon-size: 62px; }
+  .benefits__bowl { width: 170px; height: 170px; }
+}
+
+/* ---------- Tablet and phone: text under a smaller rotating ring ---------- */
+@media (max-width: 991px) {
+  .benefits__layout { grid-template-columns: 1fr; gap: 20px; }
+  .benefits__stage { order: -1; max-width: 340px; --ring-radius: 125px; --icon-size: 54px; }
+  .benefits__bowl { width: 130px; height: 130px; border-width: 6px; }
+  .benefit__icon svg { width: 24px; height: 24px; }
+  .benefits__panel { text-align: center; }
+  .benefits__copy { min-height: 140px; }
+  .benefits__progress { justify-content: center; }
+  @keyframes copy-in { from { opacity: 0; transform: translateY(12px); } }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .orbit, .benefit__icon, .benefits__copy { animation: none; }
+}

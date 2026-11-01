@@ -1,0 +1,5 @@
+.logo { display: inline-flex; align-items: center; gap: 10px; }
+.logo__mark { width: 46px; height: 46px; }
+.logo__text { display: flex; flex-direction: column; line-height: 1; }
+.logo__name { font-family: var(--font-heading); font-weight: 700; font-size: 29px; color: var(--color-brand); }
+.logo__tag { font-family: var(--font-script); font-size: 22px; color: var(--color-accent); margin-top: 2px; }

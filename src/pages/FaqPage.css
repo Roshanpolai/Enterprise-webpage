@@ -1,0 +1,5 @@
+.faq { max-width: 820px; }
+.faq__item { margin-bottom: 14px; background: var(--color-cream); border-radius: 10px; }
+.faq__item summary { padding: 18px 24px; font-family: var(--font-heading); font-size: 19px; font-weight: 600; cursor: pointer; }
+.faq__item[open] summary { color: var(--color-accent); }
+.faq__item p { margin: 0; padding: 0 24px 20px; color: var(--color-text-soft); }

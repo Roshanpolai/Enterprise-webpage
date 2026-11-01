@@ -1,0 +1,40 @@
+.floating {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 900;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.floating__btn {
+  position: relative;
+  width: 56px;
+  height: 56px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  color: #fff;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  transition: transform var(--transition), opacity var(--transition);
+}
+.floating__btn:hover { transform: scale(1.1); }
+.floating__btn--whatsapp { background: #25d366; }
+.floating__btn--call { background: #0b3a8f; }
+.floating__btn--top {
+  background: var(--color-accent);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(12px);
+}
+.floating__btn--top.is-visible { opacity: 1; pointer-events: auto; transform: none; }
+.floating__btn--top.is-visible:hover { transform: scale(1.1); }
+.floating__ring { position: absolute; inset: 0; animation: ring-spin 14s linear infinite; }
+.floating__btn--top svg:last-child { position: relative; }
+@keyframes ring-spin { to { transform: rotate(360deg); } }
+
+@media (max-width: 575px) {
+  .floating { right: 12px; bottom: 12px; gap: 10px; }
+  .floating__btn { width: 48px; height: 48px; }
+}

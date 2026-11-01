@@ -1,0 +1,25 @@
+:root {
+  /* Colors */
+  --color-accent: #ee5a2b;
+  --color-accent-dark: #c9431a;
+  --color-brand: #1d3b2a;       /* deep cashew-leaf green, used for the logo */
+  --color-text: #232323;
+  --color-text-soft: #6f6f6f;
+  --color-cream: #fdf6ef;
+  --color-peach: #fff3e6;
+  --color-white: #ffffff;
+  --color-footer: #212222;
+
+  /* Fonts */
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-body: 'Lora', Georgia, serif;
+  --font-script: 'Caveat', cursive;
+  --font-button: 'Poppins', Arial, sans-serif;
+
+  /* Layout */
+  --header-height: 80px;
+  --header-height-small: 80px;
+  --container-width: 1240px;
+  --radius: 6px;
+  --transition: 0.3s ease;
+}
