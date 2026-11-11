@@ -1,69 +1,190 @@
+.processing {
+  padding: 70px 0;
+}
+
+.processing__banner {
+  position: relative;
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  align-items: center;
+  gap: 35px;
+
+  width: calc(100% - 30px);
+  min-height: 300px;
+  margin-inline: auto;
+  padding: 65px 35px 55px 5%;
+
+  overflow: hidden;
+  background: #fff8f0;
+}
+
+.processing__apple {
+  position: absolute;
+  top: -52px;
+  left: 7%;
+  width: 150px;
+  z-index: 0;
+  transform-origin: 50% 50%;
+  animation: sketch-sway 6s ease-in-out infinite;
+}
+
+.processing__leaf {
+  position: absolute;
+  bottom: -16px;
+  right: 4%;
+  width: 220px;
+  z-index: 0;
+  transform-origin: 0% 100%;
+  animation: sketch-sway 7s ease-in-out infinite reverse;
+}
+
+@keyframes sketch-sway {
+  0%, 100% { transform: rotate(-2deg); }
+  50% { transform: rotate(2deg); }
+}
+
+.processing__text {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  min-width: 0;
+}
+
+.processing__text h2 {
+  margin-bottom: 14px;
+  font-size: clamp(28px, 2.7vw, 38px);
+  line-height: 1.2;
+
+  background: linear-gradient(90deg, #ee6a26, #e9a23b);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.processing__text p {
+  margin: 0 0 24px;
+  color: #555;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
 .processing__marquee {
-    overflow: hidden;
-    padding: 10px 0;
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
+
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 3%,
+    #000 97%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 3%,
+    #000 97%,
+    transparent
+  );
 }
 
 .processing__track {
-    display: flex;
-    width: max-content;
-    animation: marquee 50s linear infinite;
+  display: flex;
+  width: max-content;
+  align-items: center;
+  animation: process-run 48s linear infinite;
+}
+
+.processing__track img {
+  display: block;
+  flex-shrink: 0;
+  width: auto;
+  height: 130px;
+  max-width: none;
+  object-fit: contain;
 }
 
 .processing__marquee:hover .processing__track {
-    animation-play-state: paused;
+  animation-play-state: paused;
 }
 
-.step {
-    width: 150px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 14px;
+@keyframes process-run {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
-.step__circle {
-    width: 78px;
-    height: 78px;
-    display: grid;
-    place-items: center;
-    font-family: var(--font-heading);
-    font-size: 28px;
-    font-weight: 700;
-    color: #fff;
-    border: 5px solid #fff;
-    border-radius: 50%;
-    box-shadow: 0 8px 18px rgba(0, 0, 0, .18);
-    transition: transform var(--transition);
+@media (max-width: 991px) {
+  .processing {
+    padding: 50px 0;
+  }
+
+  .processing__banner {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 85px 25px 45px;
+  }
+
+  .processing__text {
+    padding: 0 15px;
+  }
+
+  .processing__apple {
+    width: 120px;
+    top: -40px;
+    left: 5%;
+  }
+
+  .processing__leaf {
+    width: 160px;
+  }
+
+  .processing__track img {
+    height: 155px;
+  }
 }
 
-.step:hover .step__circle {
-    transform: translateY(-8px) scale(1.08);
-}
+@media (max-width: 575px) {
+  .processing__banner {
+    padding: 75px 15px 35px;
+    gap: 25px;
+  }
 
-.step:nth-child(even) {
-    flex-direction: column-reverse;
-    margin-top: 40px;
-}
+  .processing__text h2 {
+    font-size: 27px;
+  }
 
-.step__label {
-    font-family: var(--font-button);
-    font-size: 13px;
-    font-weight: 600;
-    color: #2a7bd6;
-}
+  .processing__text p {
+    font-size: 14px;
+  }
 
-@keyframes marquee {
-    to {
-        transform: translateX(-50%);
-    }
+  .processing__apple {
+    width: 90px;
+  }
+
+  .processing__leaf {
+    width: 115px;
+  }
+
+  .processing__track img {
+    height: 125px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .processing__marquee {
-        overflow-x: auto;
-    }
+  .processing__apple,
+  .processing__leaf,
+  .processing__track {
+    animation: none;
+  }
 
-    .processing__track {
-        animation: none;
-    }
+  .processing__marquee {
+    overflow-x: auto;
+  }
 }

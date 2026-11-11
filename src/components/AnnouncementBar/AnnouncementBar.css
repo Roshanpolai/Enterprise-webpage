@@ -1,0 +1,120 @@
+.announce {
+  --announce-bg-1: #b83a16;
+  --announce-bg-2: #cf4a1a;
+  --announce-text: #ffffff;
+  --announce-star: #ffd89a;
+  --announce-link-bg: #ffffff;
+  --announce-link-text: #b83a16;
+
+  position: relative;
+  height: var(--bar-height);
+  overflow: hidden;
+  font-family: var(--font-button);
+  font-size: 13px;
+  color: var(--announce-text);
+  background: linear-gradient(90deg, var(--announce-bg-1), var(--announce-bg-2), var(--announce-bg-1));
+}
+
+.announce__marquee {
+  height: 100%;
+  overflow: hidden;
+}
+
+.announce__track {
+  display: flex;
+  width: max-content;
+  height: 100%;
+  animation: announce-run 32s linear infinite;
+}
+
+.announce__marquee:hover .announce__track {
+  animation-play-state: paused;
+}
+
+.announce__group {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex: 0 0 auto;
+  min-width: 100vw;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.announce__item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 26px;
+  white-space: nowrap;
+}
+
+.announce__item::after {
+  content: "\2726";
+  margin-left: 26px;
+  color: var(--announce-star);
+}
+
+.announce__item a {
+  padding: 2px 11px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--announce-link-text);
+  background: var(--announce-link-bg);
+  border-radius: 20px;
+  transition: transform var(--transition);
+}
+
+.announce__item a:hover {
+  transform: translateY(-1px);
+}
+
+.announce__close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 52px;
+  display: grid;
+  place-items: center;
+  padding-left: 12px;
+  color: var(--announce-text);
+  background: linear-gradient(90deg, transparent, var(--announce-bg-1) 45%);
+  border: 0;
+}
+
+@keyframes announce-run {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 575px) {
+  .announce {
+    font-size: 12px;
+  }
+
+  .announce__track {
+    animation-duration: 26s;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .announce__marquee {
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .announce__track {
+    animation: none;
+  }
+
+  .announce__group {
+    min-width: 0;
+  }
+
+  .announce__group[aria-hidden="true"] {
+    display: none;
+  }
+}

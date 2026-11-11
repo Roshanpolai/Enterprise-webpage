@@ -1,27 +1,30 @@
-import SectionTitle from '../common/SectionTitle.jsx';
-import processSteps from '../../data/processSteps.js';
-import './Processing.css';
+import { Link } from "react-router-dom";
+import { CashewAppleSketch, LeafSketch } from "./Sketches.jsx";
+import "./Processing.css";
 
-const colors = ['#17b890', '#13bde6', '#e95fd0', '#169a9a', '#ff6a13', '#e07878', '#3a8ff0', '#7cc43c'];
+// Your running strip image (in public/images/processing/)
+const STRIP = "/images/processing/work-process.png";
 
-function Processing() {
-  // The list is repeated so the scrolling loop has no gap.
-  const loopSteps = [...processSteps, ...processSteps];
-
+function Processing({ showButton = true }) {
   return (
-    <section className="section section--peach processing">
-      <div className="container">
-        <SectionTitle title="Work Progress at Utkal Agro!" text={`Our ${processSteps.length}-step process reflects quality and excellence, from raw nut to sealed pack.`} />
-      </div>
-      <div className="processing__marquee" aria-label="Processing steps">
-        <ol className="processing__track">
-          {loopSteps.map((step, index) => (
-            <li key={`${step}-${index}`} className="step" aria-hidden={index >= processSteps.length}>
-              <span className="step__circle" style={{ background: colors[index % colors.length] }}>{(index % processSteps.length) + 1}</span>
-              <span className="step__label">{step}</span>
-            </li>
-          ))}
-        </ol>
+    <section className="processing">
+      <div className="processing__banner">
+        <CashewAppleSketch className="processing__apple" />
+        <LeafSketch className="processing__leaf" />
+
+        <div className="processing__text" data-reveal>
+          <h2>Work Progress at Utkal Agro!</h2>
+          <p>Utkal Agro follows a 14-step process reflecting quality and excellence.</p>
+          {showButton && <Link to="/facility" className="btn">View More</Link>}
+        </div>
+
+        <div className="processing__marquee" data-reveal data-delay="0.15">
+          {/* Two copies, so the loop has no gap or jump */}
+          <div className="processing__track">
+            <img src={STRIP} alt="Our cashew processing steps, from raw nut to packing" />
+            <img src={STRIP} alt="" aria-hidden="true" />
+          </div>
+        </div>
       </div>
     </section>
   );

@@ -1,5 +1,3 @@
-
-/* WHY CHOOSE US */
 .why {
   padding: 75px 0;
   background: #fff;
@@ -13,7 +11,6 @@
   align-items: center;
 }
 
-/* LEFT IMAGE */
 .why__visual {
   position: relative;
   width: 100%;
@@ -29,14 +26,13 @@
   border-radius: 0;
 }
 
-/* RIGHT CONTENT */
 .why__inner > div:last-child {
   width: 100%;
   max-width: 740px;
 }
 
 .why h2 {
-  font-size: clamp(30px, 2.4vw, 36px);
+  font-size: clamp(30px, 2.6vw, 40px);
   line-height: 1.2;
   color: #252525;
   margin-bottom: 22px;
@@ -49,10 +45,9 @@
   margin-bottom: 28px;
 }
 
-/* BENEFITS */
 .why__list {
   display: grid;
-  gap: 22px;
+  gap: 30px;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -60,19 +55,26 @@
 
 .why__list li {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 20px;
 }
 
 .why__icon {
-  flex: 0 0 64px;
-  width: 64px;
-  height: 64px;
+  flex: 0 0 86px;
+  width: 86px;
+  height: 86px;
   display: grid;
   place-items: center;
   background: #fff1e4;
-  border-radius: 13px;
-  transition: transform .3s ease;
+  border-radius: 14px;
+  transition: transform 0.3s ease;
+}
+
+.why__icon img,
+.why__icon svg {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
 }
 
 .why__list li:hover .why__icon {
@@ -80,9 +82,9 @@
 }
 
 .why__list h3 {
-  font-size: 21px;
+  font-size: 22px;
   line-height: 1.3;
-  margin: 0 0 5px;
+  margin: 0 0 6px;
   color: #ee5a2b;
 }
 
@@ -93,84 +95,32 @@
   color: var(--color-text-soft);
 }
 
-/* TABLET */
 @media (max-width: 991px) {
-  .why {
-    padding: 60px 0;
-  }
-
-  .why__inner {
-    grid-template-columns: 1fr;
-    gap: 35px;
-  }
-
-  .why__visual {
-    max-width: 520px;
-  }
-
-  .why__inner > div:last-child {
-    max-width: 650px;
-    margin-inline: auto;
-  }
-
-  .why h2 {
-    font-size: 32px;
-  }
+  .why { padding: 60px 0; }
+  .why__inner { grid-template-columns: 1fr; gap: 35px; }
+  .why__visual { max-width: 520px; }
+  .why__inner > div:last-child { max-width: 650px; margin-inline: auto; }
+  .why h2 { font-size: 32px; }
 }
 
-/* MOBILE */
 @media (max-width: 600px) {
-  .why {
-    padding: 40px 0;
-  }
-
-  .why__inner {
-    gap: 20px;
-  }
-
-  .why__visual {
-    max-width: 100%;
-    padding: 0 5px;
-  }
-
-  .why h2 {
-    font-size: 26px;
-    line-height: 1.25;
-    margin-bottom: 13px;
-  }
-
-  .why__intro {
-    font-size: 14px;
-    line-height: 1.65;
-    margin-bottom: 22px;
-  }
-
-  .why__list {
-    gap: 19px;
-  }
-
-  .why__list li {
-    gap: 13px;
-  }
+  .why { padding: 40px 0; }
+  .why__inner { gap: 20px; }
+  .why__visual { max-width: 100%; padding: 0 5px; }
+  .why h2 { font-size: 26px; line-height: 1.25; margin-bottom: 13px; }
+  .why__intro { font-size: 14px; line-height: 1.65; margin-bottom: 22px; }
+  .why__list { gap: 20px; }
+  .why__list li { gap: 13px; }
 
   .why__icon {
-    flex: 0 0 48px;
-    width: 48px;
-    height: 48px;
+    flex: 0 0 56px;
+    width: 56px;
+    height: 56px;
     border-radius: 10px;
   }
+  .why__icon img,
+  .why__icon svg { width: 32px; height: 32px; }
 
-  .why__icon svg {
-    width: 22px;
-    height: 22px;
-  }
-
-  .why__list h3 {
-    font-size: 17px;
-  }
-
-  .why__list p {
-    font-size: 13px;
-    line-height: 1.55;
-  }
+  .why__list h3 { font-size: 17px; }
+  .why__list p { font-size: 13px; line-height: 1.55; }
 }

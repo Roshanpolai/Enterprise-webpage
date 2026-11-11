@@ -16,8 +16,6 @@ function About({ showButton = true }) {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const ctx = gsap.context(() => {
-      // The image and the title animate themselves through data-reveal,
-      // so this timeline only handles the paragraphs and the button.
       const tl = gsap.timeline({
         scrollTrigger: { trigger: ".about__text", start: "top 80%", once: true },
       });
@@ -44,7 +42,7 @@ function About({ showButton = true }) {
         <div className="about__images" data-reveal>
           <Photo
             className="about__img-main"
-            src="/images/About/cashew-bowl.png"
+            src="/images/About/processing-Collage.png"
             alt="Cashews in a bowl"
           />
         </div>

@@ -20,7 +20,7 @@ function App() {
       <Preloader />
       <ScrollToTop />
       <Navbar />
-      <main>
+      <main id="main">
         <PageTransition>
           <Routes>
             <Route path="/" element={<Home />} />

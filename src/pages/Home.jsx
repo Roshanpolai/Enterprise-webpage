@@ -11,6 +11,10 @@ import Gallery from '../components/Gallery/Gallery.jsx';
 import Enquiry from '../components/Enquiry/Enquiry.jsx';
 import ContactInfo from '../components/ContactInfo/ContactInfo.jsx';
 import Benefits from '../components/Benefits/Benefits.jsx';
+import Testimonials from '../components/Testimonials/Testimonials.jsx';
+import Connect from '../components/Connect/Connect.jsx';
+
+
 
 function Home() {
   const pageRef = useRef(null);
@@ -20,18 +24,23 @@ function Home() {
     <div ref={pageRef}>
       <Hero />
       <About />
-      <Processing />
+      <GradesCarousel />
+      {/* <Connect /> */}
       <ProductCategories />
-      <Benefits />
+      <Processing />
+      {/* <ProductCategories /> */}
+      {/* <Benefits /> */}
       {/* <Quality /> */}
       {/* <Enquiry /> */}
-      <GradesCarousel />
+      {/* <GradesCarousel /> */}
       <WhyChooseUs />
-      <Gallery limit={8} />
-      <ContactInfo />
+      <Testimonials />
+      {/* <Gallery limit={8} /> */}
+      {/* <ContactInfo /> */}
       <Enquiry />
     </div>
   );
 }
 
 export default Home;
+
