@@ -12,7 +12,9 @@ import "./Navbar.css";
 // Set to false to hide the green "Get a Quote" button in the navbar
 const SHOW_QUOTE_BUTTON = true;
 
-const quoteLink = whatsappLink("Hello Utkal Agro Industries, I would like a quote for cashews.");
+const quoteLink = whatsappLink(
+  "Hello Utkal Agro Industries, I would like a quote for cashews.",
+);
 
 function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -78,21 +80,34 @@ function Navbar() {
     setOpenDropdown((current) => (current === label ? null : label));
 
   return (
-    <div ref={wrapperRef} className={`site-header ${isScrolled ? "site-header--scrolled" : ""}`}>
-      <a className="skip-link" href="#main">Skip to content</a>
+    <div
+      ref={wrapperRef}
+      className={`site-header ${isScrolled ? "site-header--scrolled" : ""}`}
+    >
+      <a className="skip-link" href="#main">
+        Skip to content
+      </a>
 
       <AnnouncementBar />
 
       <header className={`navbar ${isScrolled ? "navbar--small" : ""}`}>
-        <div className="navbar__logo"><Logo /></div>
+        <div className="navbar__logo">
+          <Logo />
+        </div>
 
         <nav className="navbar__links" aria-label="Main navigation">
           <ul>
             {navLinks.map((link) => (
               <li key={link.label} className="navbar__item">
-                <NavLink to={link.path} end={link.path === "/"} className="navbar__link">
+                <NavLink
+                  to={link.path}
+                  end={link.path === "/"}
+                  className="navbar__link"
+                >
                   <span className="navbar__label">{link.label}</span>
-                  {link.children && <span className="navbar__caret" aria-hidden="true" />}
+                  {link.children && (
+                    <span className="navbar__caret" aria-hidden="true" />
+                  )}
                 </NavLink>
                 {link.children && (
                   <ul className="navbar__dropdown">
@@ -109,7 +124,12 @@ function Navbar() {
         </nav>
 
         {SHOW_QUOTE_BUTTON && (
-          <a className="navbar__cta" href={quoteLink} target="_blank" rel="noopener noreferrer">
+          <a
+            className="navbar__cta"
+            href={quoteLink}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <WhatsAppIcon size={16} /> Get a Quote
           </a>
         )}
@@ -127,31 +147,79 @@ function Navbar() {
             <rect x="3" y="3" width="7" height="7" rx="2" /><rect x="14" y="3" width="7" height="7" rx="2" />
             <rect x="3" y="14" width="7" height="7" rx="2" /><rect x="14" y="14" width="7" height="7" rx="2" />
           </svg>
+
+          <svg
+            viewBox="0 0 24 24"
+            width="26"
+            height="26"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            aria-hidden="true"
+          >
+            <path d="M3 6h18M3 12h18M3 18h18" />
+          </svg>
         </button>
       </header>
 
-      {/* Side panel sits outside the header so the header's blur effect cannot shift it */}
-      <div className={`panel-overlay ${isPanelOpen ? "is-open" : ""}`} onClick={closePanel} />
-      <aside id="side-panel" className={`panel ${isPanelOpen ? "is-open" : ""}`} aria-hidden={!isPanelOpen} aria-label="Menu">
-        <button ref={closeButtonRef} type="button" className="panel__close" onClick={closePanel} aria-label="Close menu">
-          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19" /></svg>
+      <div
+        className={`panel-overlay ${isPanelOpen ? "is-open" : ""}`}
+        onClick={closePanel}
+      />
+      <aside
+        id="side-panel"
+        className={`panel ${isPanelOpen ? "is-open" : ""}`}
+        aria-hidden={!isPanelOpen}
+        aria-label="Menu"
+      >
+        <button
+          ref={closeButtonRef}
+          type="button"
+          className="panel__close"
+          onClick={closePanel}
+          aria-label="Close menu"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            width="22"
+            height="22"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            aria-hidden="true"
+          >
+            <path d="M5 5l14 14M19 5L5 19" />
+          </svg>
         </button>
 
         <ul className="panel__links">
           {navLinks.map((link) => (
             <li key={link.label}>
               <div className="panel__row">
-                <NavLink to={link.path} end={link.path === "/"}>{link.label}</NavLink>
+                <NavLink to={link.path} end={link.path === "/"}>
+                  {link.label}
+                </NavLink>
                 {link.children && (
-                  <button type="button" aria-label={`Show ${link.label} menu`} aria-expanded={openDropdown === link.label} onClick={() => toggleDropdown(link.label)}>
-                    <span className={`navbar__caret ${openDropdown === link.label ? "is-up" : ""}`} />
+                  <button
+                    type="button"
+                    aria-label={`Show ${link.label} menu`}
+                    aria-expanded={openDropdown === link.label}
+                    onClick={() => toggleDropdown(link.label)}
+                  >
+                    <span
+                      className={`navbar__caret ${openDropdown === link.label ? "is-up" : ""}`}
+                    />
                   </button>
                 )}
               </div>
               {link.children && openDropdown === link.label && (
                 <ul className="panel__sub">
                   {link.children.map((child) => (
-                    <li key={child.label}><NavLink to={child.path}>{child.label}</NavLink></li>
+                    <li key={child.label}>
+                      <NavLink to={child.path}>{child.label}</NavLink>
+                    </li>
                   ))}
                 </ul>
               )}
@@ -162,15 +230,26 @@ function Navbar() {
         <div className="panel__contact">
           <h3>Contact us</h3>
           <p>{company.address}</p>
-          <p><a href={company.phoneLink}>{company.phone}</a></p>
-          <p><a href={`mailto:${company.email}`}>{company.email}</a></p>
+          <p>
+            <a href={company.phoneLink}>{company.phone}</a>
+          </p>
+          <p>
+            <a href={`mailto:${company.email}`}>{company.email}</a>
+          </p>
           <p>{company.hours}</p>
 
           <div className="panel__actions">
-            <a className="panel__whatsapp" href={quoteLink} target="_blank" rel="noopener noreferrer">
+            <a
+              className="panel__whatsapp"
+              href={quoteLink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <WhatsAppIcon size={18} /> WhatsApp
             </a>
-            <a className="panel__call" href={company.phoneLink}>Call us</a>
+            <a className="panel__call" href={company.phoneLink}>
+              Call us
+            </a>
           </div>
         </div>
       </aside>
