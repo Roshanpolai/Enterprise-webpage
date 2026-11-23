@@ -74,7 +74,7 @@ function Preloader() {
     >
       <div className="preloader__logo-wrap">
         <img
-          src="/images/preloder/cashew-logo.png"
+          src="/images/preloder/cashew-logo.webp"
           alt="Utkal Agro Logo"
           className="preloader__logo"
         />

@@ -42,7 +42,7 @@ function About({ showButton = true }) {
         <div className="about__images" data-reveal>
           <Photo
             className="about__img-main"
-            src="/images/About/processing-Collage.png"
+            src="/images/About/processing-Collage.webp"
             alt="Cashews in a bowl"
           />
         </div>

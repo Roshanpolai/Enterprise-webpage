@@ -53,7 +53,7 @@ function Benefits() {
           {/* Right: the rotating ring */}
           <div className="benefits__stage">
             <div className="benefits__bowl">
-              <Photo src="images/benefits/image1.png" />
+              <Photo src="images/benefits/image1.webp" />
             </div>
 
             <ul className="orbit">

@@ -4,7 +4,7 @@ function Logo() {
   return (
     <Link to="/" className="navbar-logo-link">
       <img
-        src="/images/logo.png"
+        src="/images/logo.webp"
         alt="Utkal Agro Industries"
         className="navbar-logo-image"
       />

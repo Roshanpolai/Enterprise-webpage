@@ -58,7 +58,7 @@ function Footer() {
         <div className="footer__brand-column">
             <Link to="/" className="footer__brand-logo">
               <img
-                src="/images/logo.png"
+                src="/images/logo.webp"
                 alt="Utkal Agro Industries"
                 loading="lazy"
               />

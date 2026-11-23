@@ -3,7 +3,7 @@ import { CashewAppleSketch, LeafSketch } from "./Sketches.jsx";
 import "./Processing.css";
 
 // Your running strip image (in public/images/processing/)
-const STRIP = "/images/processing/work-process.png";
+const STRIP = "/images/processing/work-process.webp";
 
 function Processing({ showButton = true }) {
   return (

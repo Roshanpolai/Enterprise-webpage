@@ -9,7 +9,6 @@ import company from "../../data/company.js";
 import { whatsappLink } from "../../utils/whatsapp.js";
 import "./Navbar.css";
 
-// Set to false to hide the green "Get a Quote" button in the navbar
 const SHOW_QUOTE_BUTTON = true;
 
 const quoteLink = whatsappLink(
@@ -19,7 +18,7 @@ const quoteLink = whatsappLink(
 function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isPanelOpen, setIsPanelOpen] = useState(false);
-  const [openDropdown, setOpenDropdown] = useState(null); // submenus inside the side panel
+  const [openDropdown, setOpenDropdown] = useState(null);
   const wrapperRef = useRef(null);
   const menuButtonRef = useRef(null);
   const closeButtonRef = useRef(null);
@@ -143,22 +142,19 @@ function Navbar() {
           aria-controls="side-panel"
           onClick={() => setIsPanelOpen(true)}
         >
-          <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
-            <rect x="3" y="3" width="7" height="7" rx="2" /><rect x="14" y="3" width="7" height="7" rx="2" />
-            <rect x="3" y="14" width="7" height="7" rx="2" /><rect x="14" y="14" width="7" height="7" rx="2" />
-          </svg>
-
           <svg
             viewBox="0 0 24 24"
-            width="26"
-            height="26"
+            width="30"
+            height="30"
             fill="none"
             stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
+            strokeWidth="1.8"
             aria-hidden="true"
           >
-            <path d="M3 6h18M3 12h18M3 18h18" />
+            <rect x="3" y="3" width="7" height="7" rx="2" />
+            <rect x="14" y="3" width="7" height="7" rx="2" />
+            <rect x="3" y="14" width="7" height="7" rx="2" />
+            <rect x="14" y="14" width="7" height="7" rx="2" />
           </svg>
         </button>
       </header>

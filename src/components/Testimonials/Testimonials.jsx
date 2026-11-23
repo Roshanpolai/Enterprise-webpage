@@ -28,7 +28,7 @@ function Testimonials() {
         <div className="testimonials__visual" data-reveal>
           <Photo
             className="testimonials__img"
-            src="/images/feedback/family.png"
+            src="/images/feedback/family.webp"
             alt="Happy customers sharing cashews"
           />
         </div>
